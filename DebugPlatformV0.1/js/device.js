@@ -21,6 +21,16 @@ function clickup(a)
 
 $(document).ready(function() {
 
+    $(".userinfo").hover(function(){
+        $(this).find("img").attr("src","image/user_blue.png");
+    },function(){
+        $(this).find("img").attr("src","image/user_grey.png");
+    });
+
+    $(".userinfo").click(function(){
+        window.location.href = "http://localhost:63342/ATLAS/index.html";
+    });
+
     $('#undatebtn').click(function() {
         key=1;
         $('.mask').css({'display': 'block'});

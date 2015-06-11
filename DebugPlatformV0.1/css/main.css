@@ -28,6 +28,15 @@ body{
     padding-top: 20px;
 }
 
+.userinfo
+{
+    color: #9baab6;
+    z-index: 4;
+    position: absolute;
+    right:60px;
+    top: 25px;
+    cursor: pointer;
+}
 .main-data
 {
     width: 100%;

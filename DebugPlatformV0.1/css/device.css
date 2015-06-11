@@ -325,3 +325,13 @@ body{
     font-size: 14px;
     color: #666666;
 }
+
+.userinfo
+{
+    color: #9baab6;
+    z-index: 4;
+    position: absolute;
+    right:60px;
+    top: 25px;
+    cursor: pointer;
+}

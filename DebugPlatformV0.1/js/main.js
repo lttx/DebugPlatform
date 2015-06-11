@@ -51,3 +51,18 @@ function show(number)
     $(".device-data").eq(number).show();
 }
 
+$(document).ready(function(){
+   $(".device-btn").click(function(){
+       window.location.href = "http://localhost:63342/ATLAS/device.html";
+   });
+
+    $(".userinfo").hover(function(){
+        $(this).find("img").attr("src","image/user_blue.png");
+    },function(){
+        $(this).find("img").attr("src","image/user_grey.png");
+    });
+
+    $(".userinfo").click(function(){
+        window.location.href = "http://localhost:63342/ATLAS/index.html";
+    });
+});
