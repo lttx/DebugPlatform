@@ -1,0 +1,159 @@
+body{
+    background: url(../image/mainbackground.png)no-repeat center center fixed;
+    font-family: 'microsoft yahei',Arial,sans-serif;
+    background-size:100% 100%;
+    text-align: center;
+    z-index: 0;
+    color: #252525;
+}
+
+.main
+{
+    position: relative;
+    background: url(../image/mainshape.png);
+    width: 1015px;
+    min-width: 1015px;
+    height: 781px;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+.main-head
+{
+    background:url(../image/Shapemain.png);
+    width: 1003px;
+    height: 76px;
+    margin-left: 6.5px;
+    padding-top: 20px;
+}
+
+.main-data
+{
+    width: 100%;
+    height: 705px;
+    padding-left: 55px;
+    padding-right: 55px;
+    padding-top: 15px;
+}
+
+.device-show-container
+{
+    position: relative;
+    width: 890px;
+    margin-top:13px;
+    height: 418px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.device-container
+{
+    position: relative;
+    height: 418px;
+    width: 9999999px;
+    left: 0px;
+}
+
+.device-data
+{
+    height: 418px;
+    width: 890px;
+    position: relative;
+    float: left;
+}
+
+.device
+{
+    background: url(../image/Base.png);
+    width: 263px;
+    height: 117px;
+    margin-bottom: 32px;
+    margin-right: 32px;
+    float: left;
+}
+
+.device-btn
+{
+    background: url(../image/sign_grey.png);
+    border: none;
+    position: relative;
+    top: 32px;
+    left: 80px;
+}
+
+.device-btn:hover
+{
+    color: #ffffff;
+    background: url(../image/sign_blue.png);
+}
+
+.page-control
+{
+    width: 260px;
+    height: 34px;
+    margin: 0 auto;
+}
+
+.list-unstyled
+{
+    position: relative;
+    float: left;
+    width: 260px;
+    margin: 0 auto;
+    padding-left: 10px;
+    cursor: pointer;
+}
+.list-unstyled li
+{
+    color: #9b9b9b;
+    width: 20px;
+    height: 20px;
+    background-color: whitesmoke;
+    border-radius: 9px;
+    float: left;
+    margin: 7px;
+    margin-top: 5px;
+    border: 1px solid silver;
+}
+.list-unstyled li:hover
+{
+    color: #ffffff;
+    background-color: #31a2c7;
+}
+
+.foot-control
+{
+    position: absolute;
+    bottom: 40px;
+    padding: 30px;
+    margin-left: 60px;
+    width: 890px;
+    height: 110px;
+    border-top: 1px solid #c6c6c6;
+}
+
+table
+{
+    width: 90%;
+    position: relative;
+    left: 5%;
+    top:20%;
+    color: #252525;
+    font-size: 14px;
+}
+
+table tr
+{
+    height: 30px;
+    line-height: 30px;
+}
+
+table td
+{
+    text-align: left;
+}
+
+.blank
+{
+    width: 30px;
+}

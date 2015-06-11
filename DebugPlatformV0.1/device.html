@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ATLAS设备调试</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/cikonss.css">
+    <link rel="stylesheet" href="css/device.css">
+</head>
+<body>
+
+<div class="main">
+    <div class="main-head">
+        <img src="image/ATLAS设备调试系统main.png">
+    </div>
+
+    <div class="main-data">
+        <div class="btndiv">
+            <button class="upperbtn" id="back" onmousedown="clickdown(this.id)" onmouseup="clickup(this.id)">
+                <img src="image/back_grey.png" id="backimg">
+            </button>
+            <button class="upperbtn" id="refresh" onmousedown="clickdown(this.id)" onmouseup="clickup(this.id)">
+                <img src="image/refresh_grey.png" id="refreshimg">
+            </button>
+        </div>
+
+        <div class="devicedata">
+            <div class="headinfo">
+                <div class="headicon">ATLAS home</div>
+                <div class="headdata">
+                    <table>
+                        <tr>
+                            <td>设备ID</td>
+                            <td class="blank"></td>
+                            <td>ASDFASFASFASFAS</td>
+                        </tr>
+                        <tr>
+                            <td>设备版本</td>
+                            <td class="blank"></td>
+                            <td>2.0</td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="centerdata">
+                <div class="singledata">
+                    <div class="topinfo">PM1.0</div>
+                    <div class="centerinfo"><span id="pm1.0">122</span>mg/m³</div>
+                    <div class="footinfo"><span>time</span>2:42:30</div>
+                </div>
+                <div class="singledata">
+                    <div class="topinfo">PM2.5</div>
+                    <div class="centerinfo"><span id="pm2.5">122</span>mg/m³</div>
+                    <div class="footinfo"><span>time</span>2:42:30</div>
+                </div>
+                <div class="singledata">
+                    <div class="topinfo">PM10</div>
+                    <div class="centerinfo"><span id="pm10">122</span>mg/m³</div>
+                    <div class="footinfo"><span>time</span>2:42:30</div>
+                </div>
+                <div class="singledata">
+                    <div class="topinfo">温度</div>
+                    <div class="centerinfo"><span id="tempreture">22</span>℃</div>
+                    <div class="footinfo"><span>time</span>2:42:30</div>
+                </div>
+                <div class="singledata">
+                    <div class="topinfo">湿度</div>
+                    <div class="centerinfo"><span id="dampness">53</span>％</div>
+                    <div class="footinfo"><span>time</span>2:42:30</div>
+                </div>
+                <div class="singledata">
+                    <div class="topinfo">风扇</div>
+                    <div class="centerinfo"><span id="windlevel">2</span>级</div>
+                    <div class="footinfo"><span>time</span>2:42:30</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="foot-control">
+            <button class="btn btn-info btn-lg col-lg-3" id="configbtn">配置</button>
+            <button class="btn btn-info btn-lg col-lg-3 col-lg-offset-1" id="undatebtn">固件升级</button>
+            <button class="btn btn-info btn-lg col-lg-3 col-lg-offset-1">数据导出</button>
+        </div>
+    </div>
+</div>
+
+ <div class="mask"></div>
+ <div class="mess">
+     <div class="mess-head">
+         <span>配置</span>
+     </div>
+     <div class="mess-body">
+         <table>
+             <tr>
+                 <td class="mess-tittle">采集间隔</td>
+                 <td class="blank"></td>
+                 <td class="mess-info">
+                     <div class="input-group">
+                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <span class="input-group-addon">秒</span>
+                     </div>
+                 </td>
+             </tr>
+             <tr>
+                 <td class="mess-tittle">上传间隔</td>
+                 <td class="blank"></td>
+                 <td class="mess-info">
+                     <div class="input-group">
+                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <span class="input-group-addon">秒</span>
+                     </div>
+                 </td>
+             </tr>
+             <tr>
+                 <td class="mess-tittle">风扇级数</td>
+                 <td class="blank"></td>
+                 <td class="mess-info">
+                     <div class="input-group">
+                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <span class="input-group-addon">级</span>
+                     </div>
+                 </td>
+             </tr>
+             <tr>
+                 <td class="mess-tittle">状态上传间隔</td>
+                 <td class="blank"></td>
+                 <td class="mess-info">
+                     <div class="input-group">
+                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <span class="input-group-addon">秒</span>
+                     </div>
+                 </td>
+             </tr>
+             <tr>
+                 <td class="mess-tittle">时间同步间隔</td>
+                 <td class="blank"></td>
+                 <td class="mess-info">
+                     <div class="input-group">
+                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <span class="input-group-addon">秒</span>
+                     </div>
+                 </td>
+             </tr>
+             <tr>
+                 <td class="mess-tittle">传感器上传间隔</td>
+                 <td class="blank"></td>
+                 <td class="mess-info">
+                     <div class="input-group">
+                         <input class="form-control" placeholder="--" type="number" style="text-align: right">
+                         <span class="input-group-addon">秒</span>
+                     </div>
+                 </td>
+             </tr>
+         </table>
+     </div>
+     <div class="mess-foot">
+         <button class="btn btn-info btn-lg col-md-6 col-md-offset-3"><b>应用设置</b></button>
+     </div>
+ </div>
+
+<div class="mess2">
+    <div class="progress" style="border: 1px solid red">
+        <span class="progress-val">0%</span>
+        <span class="progress-bar"><span class="progress-in" style="width: 0%"></span></span>
+    </div>
+    <p class="upload-info">
+        <span>upload.exe</span>
+        上传预计<span>60</span>s,已上传<span>35</span>s...
+    </p>
+</div>
+
+
+
+</body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/device.js"></script>
+</html>
