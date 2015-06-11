@@ -335,3 +335,11 @@ body{
     top: 25px;
     cursor: pointer;
 }
+
+
+#logout
+{
+    position: absolute;
+    left: -40px;
+    display: none;
+}

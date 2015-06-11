@@ -166,3 +166,10 @@ table td
 {
     width: 30px;
 }
+
+#logout
+{
+    position: absolute;
+    left: -40px;
+    display: none;
+}

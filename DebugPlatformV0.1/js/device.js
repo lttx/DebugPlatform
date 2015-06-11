@@ -21,14 +21,17 @@ function clickup(a)
 
 $(document).ready(function() {
 
+
     $(".userinfo").hover(function(){
-        $(this).find("img").attr("src","image/user_blue.png");
+        $("#usericon").attr("src","image/user_blue.png");
+        $("#logout").show();
     },function(){
-        $(this).find("img").attr("src","image/user_grey.png");
+        $("#usericon").attr("src","image/user_grey.png");
+        $("#logout").hide();
     });
 
-    $(".userinfo").click(function(){
-        window.location.href = "http://localhost:63342/ATLAS/index.html";
+    $("#logout").click(function(){
+        alert("123");
     });
 
     $('#undatebtn').click(function() {
