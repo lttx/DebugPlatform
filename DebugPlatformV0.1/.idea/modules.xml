@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/ATLAS.iml" filepath="$PROJECT_DIR$/.idea/ATLAS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DebugPlatform.iml" filepath="$PROJECT_DIR$/.idea/DebugPlatform.iml" />
     </modules>
   </component>
 </project>

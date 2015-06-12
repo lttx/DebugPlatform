@@ -20,7 +20,7 @@ $("li").click(
         {
             if(currentshow=="0")
             {
-                currentshow=totalnumber;//如果是第一页，则去最后一页
+                currentshow=totalnumber;
             }
             else
             {
@@ -40,7 +40,7 @@ $("li").click(
         }
         else
         {
-            currentshow=clickid;//最后是点击相应的页数的情况
+            currentshow=clickid;
         }
         show(currentshow);
     }
@@ -53,7 +53,7 @@ function show(number)
 
 $(document).ready(function(){
    $(".device-btn").click(function(){
-       window.location.href = "http://localhost:63342/ATLAS/device.html";
+       window.location.href = "device.html";
    });
 
     $(".userinfo").hover(function(){
@@ -64,7 +64,4 @@ $(document).ready(function(){
         $("#logout").hide();
     });
 
-    $("#logout").click(function(){
-        alert("123");
-    });
 });

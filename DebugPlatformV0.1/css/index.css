@@ -1,0 +1,80 @@
+html{
+    height:100%;
+    min-width:970px;
+}
+body{
+    background: url(../image/background.jpg )no-repeat center center fixed;
+    font-family: 'microsoft yahei',Arial,sans-serif;
+    background-size:100% 100%;
+    text-align: center;
+}
+.out{
+    position: absolute;
+    top:25%;
+    left:37%;
+    width: 25%;
+    min-width: 400px;
+    height: 250px;
+    opacity:0.8;
+    filter:alpha(opacity=80);
+    border-radius: 3px;
+    z-index: 1;
+    padding-top: 30px;
+    padding-bottom:30px;
+    background: url(../image/Shape.png);
+    background-size: 100% 100%;
+}
+
+.input-group
+{
+    width: 90%;
+}
+.textinfo
+{
+    border-radius:8px;
+    width: 80%;
+}
+.input-single
+{
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+    min-width: 350px;
+    padding: 0px;
+}
+.first
+{
+    margin-top: 45px;
+}
+.list-unstyled li
+{
+    width: 30%;
+    float: left;
+    height: 40px;
+    line-height: 40px;
+}
+
+.input-group-addon
+{
+    background-color: #F5F6F7;
+    border: none;
+    width: 20%;
+    text-align: left;
+}
+.head
+{
+    position: absolute;
+    top: 0px;
+    width: 399px;
+    height: 53px;
+    background: url(../image/Shape.png);
+}
+
+.foot
+{
+    position: absolute;
+    top:285px;
+    width: 100%;
+}
+
+
