@@ -23,17 +23,15 @@ $("#loginbtn").hover(
                 $.cookie('username',userName,{path:'/DebugPlatform'});
                 $.ajax({
                     type:"POST",
-                    url:"php/userInfo.php",
+                    url:"php/getUserDevices.php",
                     data: {
                         username:userName
                     },
                     success:function(data){
-                        alert(data);
                         window.location.href = "main.html";
                 },
-                    dataType:JSON
+                    dataType:'JSON'
                 });
-                //window.location.href="main.html";
             }else{
                 alert("Wrong username or password!");
             }

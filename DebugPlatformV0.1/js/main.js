@@ -1,11 +1,31 @@
 /**
  * Created by lt on 2015/6/10.
  */
+var deviceIDs = null;
+var ajaxData = $.ajax({
+	async:false,
+        type:"POST",
+        url:"php/getUserDevices.php",
+        data: {
+            username:'admin'
+        },
+        success:function(data){
+	    deviceIDs = data;
+	},
+	dataType:'JSON'
+    });
+
+var deviceCount = deviceIDs["devices"].length;
+for(var count = 0; count < deviceCount; count++){
+	$(".device-container").after('<div class="device"><table><tr><td class="td1">设备ID</td><td class="blank"></td><td class="td2">'+deviceIDs["devices"][count]["device_id"]+'</td></tr><tr><td class="td1">设备版本</td><td class="blank"></td><td class="td2">2.0</td></tr></table><button class="device-btn">ATLAS home</button></div>');
+}
+
 var change=890;
 var container=$(".device-container");
 var clickid;
 var currentshow=0;
-var totalnumber=container.length;
+//var totalnumber=container.length;
+var totalnumber = Math.floor(deviceCount/9);
 var str = "";
 for(i=0;i<=totalnumber;i++)
 {
