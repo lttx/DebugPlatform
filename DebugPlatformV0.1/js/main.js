@@ -2,6 +2,7 @@
  * Created by lt on 2015/6/10.
  */
 var deviceIDs = null;
+var deviceCntPP = 9;
 var ajaxData = $.ajax({
 	async:false,
         type:"POST",
@@ -16,16 +17,27 @@ var ajaxData = $.ajax({
     });
 
 var deviceCount = deviceIDs["devices"].length;
+var deviceStr = "";
 for(var count = 0; count < deviceCount; count++){
-	$(".device-container").after('<div class="device"><table><tr><td class="td1">设备ID</td><td class="blank"></td><td class="td2">'+deviceIDs["devices"][count]["device_id"]+'</td></tr><tr><td class="td1">设备版本</td><td class="blank"></td><td class="td2">2.0</td></tr></table><button class="device-btn">ATLAS home</button></div>');
+	var htmlStart = "";
+	var htmlEnd = "";
+	if($(".device").length % deviceCntPP ==0){
+	    htmlStart = "<div class='device_data'>";
+	    htmlEnd = "</div>";
+	}
+	deviceStr += htmlStart + '<div class="device"><table><tr><td class="td1">设备ID</td><td class="blank"></td><td class="td2">'+deviceIDs["devices"][count]["device_id"]+'</td></tr><tr><td class="td1">设备版本</td><td class="blank"></td><td class="td2">2.0</td></tr></table><button class="device-btn">ATLAS home</button></div>'+htmlEnd;
+
 }
+$(".device-container").append(deviceStr);
+alert($(".device").length);
+
 
 var change=890;
 var container=$(".device-container");
 var clickid;
 var currentshow=0;
 //var totalnumber=container.length;
-var totalnumber = Math.floor(deviceCount/9);
+var totalnumber = Math.floor(deviceCount/deviceCntPP);
 var str = "";
 for(i=0;i<=totalnumber;i++)
 {
