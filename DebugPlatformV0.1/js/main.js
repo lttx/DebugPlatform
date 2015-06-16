@@ -1,6 +1,71 @@
 /**
  * Created by lt on 2015/6/10.
  */
+$(document).ready(function(){
+    //改成了只向device-container中添加数据
+    var str="";
+    for(var count = 0; count <19; count++){
+        str += '<div class="device"><table><tr><td class="td1">设备ID</td><td class="blank"></td><td class="td2">'+'设备的ID'+'</td></tr><tr><td class="td1">设备版本</td><td class="blank"></td><td class="td2">2.0</td></tr></table><button class="device-btn">ATLAS home</button></div>';
+    }
+    $(".device-container").append(str);
+
+    $(".device-btn").click(function(){
+        window.location.href = "device.html";
+    });
+
+    $(".userinfo").hover(function(){
+        $("#usericon").attr("src","image/user_blue.png");
+        $("#logout").show();
+    },function(){
+        $("#usericon").attr("src","image/user_grey.png");
+        $("#logout").hide();
+    });
+
+    //生成下方的分页标签
+    var totalnumber = Math.floor(count/deviceCntPP);
+    var controlstr = "";
+    var currentshow=0;
+
+    for(i=0;i<=totalnumber;i++)
+    {
+        controlstr = controlstr+"<li id='"+i+"'>"+(i+1)+"</li>";
+    }
+    $("#pre").after(controlstr);
+    $("li").click(
+        function()
+        {
+            clickid=$(this).attr("id");
+            if(clickid=="pre")
+            {
+                if(currentshow=="0")
+                {
+                    currentshow=totalnumber;
+                }
+                else
+                {
+                    currentshow = currentshow-1;
+                }
+            }
+            else if(clickid=="next")
+            {
+                if(currentshow==totalnumber)
+                {
+                    currentshow=0;
+                }
+                else
+                {
+                    currentshow = currentshow + 1;
+                }
+            }
+            else
+            {
+                currentshow=clickid;
+            }
+            show(currentshow);
+        }
+    );
+});
+
 var deviceIDs = null;
 var deviceCntPP = 9;
 var ajaxData = $.ajax({
@@ -32,68 +97,15 @@ $(".device-container").append(deviceStr);
 alert($(".device").length);
 
 
-var change=890;
+var change="448px";
 var container=$(".device-container");
 var clickid;
-var currentshow=0;
-//var totalnumber=container.length;
-var totalnumber = Math.floor(deviceCount/deviceCntPP);
-var str = "";
-for(i=0;i<=totalnumber;i++)
-{
-str = str+"<li id='"+i+"'>"+(i+1)+"</li>";
-}
-$("#pre").after(str);
-$("li").click(
-    function()
-    {
-        clickid=$(this).attr("id");
-        if(clickid=="pre")
-        {
-            if(currentshow=="0")
-            {
-                currentshow=totalnumber;
-            }
-            else
-            {
-                currentshow = currentshow-1;
-            }
-        }
-        else if(clickid=="next")
-        {
-            if(currentshow==totalnumber)
-            {
-                currentshow=0;
-            }
-            else
-            {
-                currentshow = currentshow + 1;
-            }
-        }
-        else
-        {
-            currentshow=clickid;
-        }
-        show(currentshow);
-    }
-);
+
+//改为向上或者向下滑动距离
 function show(number)
 {
-    $(".device-data").hide();
-    $(".device-data").eq(number).show();
+    var changenum = number*446+"px";
+    $(".device-container").css("top","-"+changenum);
 }
 
-$(document).ready(function(){
-   $(".device-btn").click(function(){
-       window.location.href = "device.html";
-   });
 
-    $(".userinfo").hover(function(){
-        $("#usericon").attr("src","image/user_blue.png");
-        $("#logout").show();
-    },function(){
-        $("#usericon").attr("src","image/user_grey.png");
-        $("#logout").hide();
-    });
-
-});

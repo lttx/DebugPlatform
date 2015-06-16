@@ -53,14 +53,16 @@ body{
     margin-top:13px;
     height: 418px;
     margin-bottom: 20px;
-    overflow: hidden;
+    /*overflow: hidden;*/
+    border: 1px solid red;
 }
 .device-container
 {
     position: relative;
-    height: 418px;
-    width: 9999999px;
+    height: 9999999px;
+    width: 890px;
     left: 0px;
+    border: 1px solid black;
 }
 
 .device-data
@@ -79,6 +81,7 @@ body{
     margin-bottom: 32px;
     margin-right: 32px;
     float: left;
+    position: relative;
 }
 
 .device-btn
