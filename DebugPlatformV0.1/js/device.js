@@ -12,14 +12,54 @@ function clickup(a)
     document.getElementById(a+"img").src = "image/"+a+"_grey.png";
     if(a=="back")
     {
-       history.go(-1);
+        history.go(-1);
     }
     if(a=="refresh")
     {
+	window.location.reload();
     }
 }
 
+/* read parameters from url
+    lttx  2015/06/16
+*/
+
+var url = window.location.href;
+var deviceID = url.split('?')[1];
+$(".headdata").find(".blank").next().eq(0).html(deviceID);
+
+requestData();
+setInterval(requestData,60000);
+
+function requestData(){
+$.ajax({
+    async: false,
+    type:"POST",
+    url:"php/getLatestData.php",
+    data: {
+    	deviceID:deviceID
+    },
+    success:function(data){
+	var normalData = data["normal_data"];
+	var fanData = data["fan_data"];
+        $("#pm01").text(normalData["pm01"]);
+        $("#pm25").text(normalData["pm25"]);
+        $("#pm10").text(normalData["pm10"]);
+        $("#temperature").text(normalData["t"]);
+        $("#humidity").text(normalData["h"]);
+        $("#fanlevel").text(fanData["fan_speed"]);
+	$(".footinfo").each(function(){
+	   $(this).text(normalData["time"]); 
+	});
+	$(".footinfo").eq(5).text(fanData["time"]);
+    },
+    dataType:'JSON'
+});
+
+}
+
 $(document).ready(function() {
+
 
     $(".userinfo").hover(function(){
         $("#usericon").attr("src","image/user_blue.png");
@@ -29,14 +69,11 @@ $(document).ready(function() {
         $("#logout").hide();
     });
 
-    $("#logout").click(function(){
-        alert("123");
-    });
-
     $('#undatebtn').click(function() {
         key=1;
         $('.mask').css({'display': 'block'});
         center($('.mess2'));
+
     });
 
     $('#configbtn').click(function() {
@@ -51,8 +88,7 @@ $(document).ready(function() {
         closed($('.mask'));
         clearInterval(a);
     });
-
-    $(".closebtn").click(function () {
+   $(".closebtn").click(function () {
         key=0;
         closed($('.mess2'),$('.mess'));
         closed($('.mask'));
@@ -97,16 +133,14 @@ $(document).ready(function() {
         $(".progress-in").css("display","block");
         $(".upload-info").show();
     });
-       // 居中
         function center(obj) {
 
-                var screenWidth = $(window).width(), screenHeight = $(window).height();  //当前浏览器窗口的 宽高
-                var scrolltop = $(document).scrollTop();//获取当前窗口距离页面顶部高度
+                var screenWidth = $(window).width(), screenHeight = $(window).height(); 
+                var scrolltop = $(document).scrollTop();
 
                 var objLeft = (screenWidth - obj.width())/2 ;
                 var objTop = (screenHeight - obj.height())/2 + scrolltop;
 
-                //浏览器窗口大小改变时
                 obj.css({left: objLeft + 'px', top: objTop + 'px','display': 'block'});
 
                 $(window).resize(function () {
@@ -120,7 +154,6 @@ $(document).ready(function() {
                         obj.css({left: objLeft + 'px', top: objTop + 'px', 'display': 'block'});
                     }
                 });
-                //浏览器有滚动条时的操作、
                 $(window).scroll(function () {
                     screenWidth = $(window).width();
                     screenHeight = $(widow).height();
@@ -132,17 +165,9 @@ $(document).ready(function() {
                 });
             }
 
-
-        // 隐藏 的操作
         function closed(obj1, obj2) {
                 obj1.hide();
                 obj2.hide();
-        }
-
-        function cleartheinterval()
-        {
-            clearInterval(a);
-
         }
 
      });

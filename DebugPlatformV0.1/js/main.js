@@ -1,16 +1,41 @@
 /**
  * Created by lt on 2015/6/10.
  */
+var deviceIDs = null;
+var deviceCntPP = 9;
+var ajaxData = $.ajax({
+        async:false,
+        type:"POST",
+        url:"php/getUserDevices.php",
+        data: {
+            username:'admin'
+        },
+        success:function(data){
+            deviceIDs = data;
+        },
+        dataType:'JSON'
+    });
+
+var deviceCount = deviceIDs["devices"].length;
+var deviceStr = "";
+for(var count = 0; count < deviceCount; count++){
+        deviceStr += '<div class="device"><table><tr><td class="td1">设备ID</td><td class="blank"></td><td class="td2">'+deviceIDs["devices"][count]["device_id"]+'</td></tr><tr><td class="td1">设备版本</td><td class="blank"></td><td class="td2">2.0</td></tr></table><button class="device-btn">ATLAS home</button></div>';
+
+}
+$(".device-container").append(deviceStr);
+
+var change="448px";
+var container=$(".device-container");
+var clickid;
+
+
+
 $(document).ready(function(){
     //改成了只向device-container中添加数据
-    var str="";
-    for(var count = 0; count <100; count++){
-        str += '<div class="device"><table><tr><td class="td1">设备ID</td><td class="blank"></td><td class="td2">'+'设备的ID'+'</td></tr><tr><td class="td1">设备版本</td><td class="blank"></td><td class="td2">2.0</td></tr></table><button class="device-btn">ATLAS home</button></div>';
-    }
-    $(".device-container").append(str);
 
     $(".device-btn").click(function(){
-        window.location.href = "device.html";
+	var deviceID = $(this).parent().find('.td2').eq(0).text();
+        window.location.href = "device.html?"+deviceID;
     });
 
     $(".userinfo").hover(function(){
@@ -28,17 +53,15 @@ $(document).ready(function(){
 
     for(i=0;i<=totalnumber;i++)
     {
-        controlstr = controlstr+"<li id='"+i+"' class='normalli'>"+(i+1)+"</li>";
+        controlstr = controlstr+"<li id='"+i+"'>"+(i+1)+"</li>";
     }
     $("#pre").after(controlstr);
-
     //新加的
     showli(0);
     $("#pre").hide();
 
     //新加的
     $("#next").show();
-
     $("li").click(
         function()
         {
@@ -70,10 +93,6 @@ $(document).ready(function(){
                 currentshow=clickid;
             }
             show(currentshow);
-
-
-
-
             //切换选中状态,最多显示7个
             $("li").removeClass("choosedli");
             showli(currentshow);
@@ -98,40 +117,6 @@ $(document).ready(function(){
     );
 });
 
-var deviceIDs = null;
-var deviceCntPP = 9;
-var ajaxData = $.ajax({
-	async:false,
-        type:"POST",
-        url:"php/getUserDevices.php",
-        data: {
-            username:'admin'
-        },
-        success:function(data){
-	    deviceIDs = data;
-	},
-	dataType:'JSON'
-    });
-
-var deviceCount = deviceIDs["devices"].length;
-var deviceStr = "";
-for(var count = 0; count < deviceCount; count++){
-	var htmlStart = "";
-	var htmlEnd = "";
-	if($(".device").length % deviceCntPP ==0){
-	    htmlStart = "<div class='device_data'>";
-	    htmlEnd = "</div>";
-	}
-	deviceStr += htmlStart + '<div class="device"><table><tr><td class="td1">设备ID</td><td class="blank"></td><td class="td2">'+deviceIDs["devices"][count]["device_id"]+'</td></tr><tr><td class="td1">设备版本</td><td class="blank"></td><td class="td2">2.0</td></tr></table><button class="device-btn">ATLAS home</button></div>'+htmlEnd;
-
-}
-$(".device-container").append(deviceStr);
-alert($(".device").length);
-
-
-var change="448px";
-var container=$(".device-container");
-var clickid;
 
 //改为向上或者向下滑动距离
 function show(number)
@@ -151,4 +136,3 @@ function showli(number)
     choosedli.next().show();
     choosedli.next().next().show();
 }
-
