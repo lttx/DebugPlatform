@@ -100,6 +100,7 @@
  <div class="mess">
      <div class="mess-head">
          <span>配置</span>
+         <button class="btn-danger closebtn">x</button>
      </div>
      <div class="mess-body">
          <table>
@@ -163,22 +164,58 @@
                      </div>
                  </td>
              </tr>
+             <tr>
+                 <td class="mess-tittle">操作命令</td>
+                 <td class="blank"></td>
+                 <td class="mess-info">
+                     <div class="input-group">
+                         <input type="text" readonly class="form-control"  value="config" style="text-align: right">
+                         <span class="input-group-btn btn btn-info" data-toggle="dropdown">
+                             <span class="caret"></span>
+                         </span>
+                         <ul class="dropdown-menu dropdown-menu-right commandlist" role="menu">
+                             <li>time_sync</li>
+                             <li>check</li>
+                             <li>self_test</li>
+                             <li>upgrade</li>
+                         </ul>
+                     </div>
+                 </td>
+             </tr>
          </table>
      </div>
      <div class="mess-foot">
-         <button class="btn btn-info btn-lg col-md-6 col-md-offset-3"><b>应用设置</b></button>
+         <button class="btn btn-info btn-lg col-md-6 col-md-offset-3"id="applybtn"><b>应用设置</b></button>
      </div>
  </div>
 
 <div class="mess2">
-    <div class="progress" style="border: 1px solid red">
+    <button class="btn-danger closebtn2">x</button>
+    <div class="progress" >
         <span class="progress-val">0%</span>
-        <span class="progress-bar"><span class="progress-in" style="width: 0%"></span></span>
+        <span class="progress-bar"><span class="progress-in" ></span></span>
     </div>
     <p class="upload-info">
         <span>upload.exe</span>
         上传预计<span>60</span>s,已上传<span>35</span>s...
     </p>
+
+    <div class="command2">
+
+        <div class="input-group">
+            <span class="input-group-addon">操作命令</span>
+            <input type="text" readonly class="form-control"  value="config" style="text-align: right">
+                         <span class="input-group-btn btn btn-info" data-toggle="dropdown">
+                             <span class="caret"></span>
+                         </span>
+            <ul class="dropdown-menu dropdown-menu-right commandlist"  role="menu">
+                <li>self_test</li>
+                <li>upgrade</li>
+            </ul>
+        </div>
+
+        <button class="btn btn-sm btn-info mess2-config-btn" >确定</button>
+    </div>
 </div>
 
 
@@ -187,6 +224,6 @@
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
-<script src="js/loginStatus.js"></script>
+<!--<script src="js/loginStatus.js"></script>-->
 <script src="js/device.js"></script>
 </html>

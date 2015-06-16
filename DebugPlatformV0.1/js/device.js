@@ -12,7 +12,7 @@ function clickup(a)
     document.getElementById(a+"img").src = "image/"+a+"_grey.png";
     if(a=="back")
     {
-        window.location.href = "http://localhost:63342/ATLAS/main.html";
+       history.go(-1);
     }
     if(a=="refresh")
     {
@@ -20,7 +20,6 @@ function clickup(a)
 }
 
 $(document).ready(function() {
-
 
     $(".userinfo").hover(function(){
         $("#usericon").attr("src","image/user_blue.png");
@@ -38,11 +37,6 @@ $(document).ready(function() {
         key=1;
         $('.mask').css({'display': 'block'});
         center($('.mess2'));
-        var a = setInterval(function(){
-            uploadpercent = (uploadpercent+1)%100;
-            $(".progress-in").css('width',uploadpercent+"%");
-            $(".progress-val").text(uploadpercent+"%");
-        },50);
     });
 
     $('#configbtn').click(function() {
@@ -56,6 +50,52 @@ $(document).ready(function() {
         closed($('.mess2'),$('.mess'));
         closed($('.mask'));
         clearInterval(a);
+    });
+
+    $(".closebtn").click(function () {
+        key=0;
+        closed($('.mess2'),$('.mess'));
+        closed($('.mask'));
+        clearInterval(a);
+    });
+
+    $(".closebtn2").click(function () {
+        key=0;
+        closed($('.mess2'),$('.mess'));
+        closed($('.mask'));
+        clearInterval(a);
+    });
+
+    $("#applybtn").click(function(){
+        key=0;
+        closed($('.mess2'),$('.mess'));
+        closed($('.mask'));
+        clearInterval(a);
+    });
+
+    $(".commandlist").find("li").click(function(){
+        var mess=$(this).text();
+        $(this).parent().prev().prev().val(mess);
+    });
+
+    $(".mess2-config-btn").click(function(){
+        var a = setInterval(function(){
+            if(uploadpercent!=100){
+                uploadpercent = (uploadpercent+1)%101;
+            }
+            if(uploadpercent==100)
+            {
+                uploadpercent=uploadpercent;
+            }
+            $(".progress-in").css('width',uploadpercent+"%");
+            $(".progress-val").text(uploadpercent+"%");
+        },50);
+        $(".command2").hide();
+        $(".progress").show();
+        $(".progress-val").show();
+        $(".progress-bar").show();
+        $(".progress-in").css("display","block");
+        $(".upload-info").show();
     });
        // æ”÷–
         function center(obj) {
@@ -97,6 +137,12 @@ $(document).ready(function() {
         function closed(obj1, obj2) {
                 obj1.hide();
                 obj2.hide();
+        }
+
+        function cleartheinterval()
+        {
+            clearInterval(a);
+
         }
 
      });

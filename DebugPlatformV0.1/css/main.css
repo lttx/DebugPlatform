@@ -53,8 +53,7 @@ body{
     margin-top:13px;
     height: 418px;
     margin-bottom: 20px;
-    /*overflow: hidden;*/
-    border: 1px solid red;
+    overflow: hidden;
 }
 .device-container
 {
@@ -62,7 +61,6 @@ body{
     height: 9999999px;
     width: 890px;
     left: 0px;
-    border: 1px solid black;
 }
 
 .device-data
@@ -101,26 +99,24 @@ body{
 
 .page-control
 {
-    width: 260px;
+    width: 80%;
     height: 34px;
-    margin: 0 auto;
 }
 
 .list-unstyled
 {
     position: relative;
-    float: left;
-    width: 260px;
-    margin: 0 auto;
+    width: 35%;
+    left:41%;
+    height: 34px;
     padding-left: 10px;
     cursor: pointer;
 }
+
 .list-unstyled li
 {
-    color: #9b9b9b;
     width: 20px;
     height: 20px;
-    background-color: whitesmoke;
     border-radius: 9px;
     float: left;
     margin: 7px;
@@ -133,6 +129,27 @@ body{
     background-color: #31a2c7;
 }
 
+#pre
+{
+    background-color: whitesmoke;
+    color: #101010;
+}
+
+#next
+{
+    background-color: whitesmoke;
+    color: #101010;
+}
+.normalli
+{
+    background-color: whitesmoke;
+    color: #101010;
+}
+.choosedli
+{
+    color: #ffffff;
+    background-color: #31a2c7;
+}
 .foot-control
 {
     position: absolute;

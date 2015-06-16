@@ -265,6 +265,7 @@ body{
 }
 
 .progress {
+    display: none;
     overflow: hidden;
     margin: 0px auto;
     margin-top:30px;
@@ -282,6 +283,7 @@ body{
 }
 
 .progress-val {
+    display: none;
     float: right;
     margin-left: 15px;
     font: bold 15px/34px Helvetica, Arial, sans-serif;
@@ -290,7 +292,7 @@ body{
 }
 
 .progress-bar {
-    display: block;
+    display: none;
     overflow: hidden;
     height: 8px;
     width: 140px;
@@ -306,7 +308,7 @@ body{
 }
 
 .progress-in {
-    display: block;
+    display: none;
     min-width: 8px;
     height: 8px;
     background: #1997e6;
@@ -321,6 +323,7 @@ body{
 
 .upload-info
 {
+    display: none;
     margin-top:18px;
     font-size: 14px;
     color: #666666;
@@ -342,4 +345,58 @@ body{
     position: absolute;
     left: -40px;
     display: none;
+}
+
+.closebtn
+{
+    width: 25px;
+    height: 25px;
+    line-height: 5px;
+    font-size: 10px;
+    padding-left: -5px;
+    border-radius: 8px;
+    position: absolute;
+    top:20px;
+    right:60px;
+}
+
+.closebtn2
+{
+    width: 25px;
+    height: 25px;
+    line-height: 5px;
+    font-size: 10px;
+    padding-left: -5px;
+    border-radius: 8px;
+    position: absolute;
+    top:5px;
+    right:10px;
+}
+
+.dropdown-menu-right
+{
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+}
+.dropdown-menu-right li:hover
+{
+    color: #ffffff;
+    background-color: #1997e6;
+}
+
+.command2
+{
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    top:20px;
+    display: block;
+}
+
+.mess2-config-btn
+{
+    position: absolute;
+    right:0px;
+    margin-top: 10px;
 }
