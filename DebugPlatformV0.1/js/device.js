@@ -292,8 +292,9 @@ $(document).ready(function() {
                     scrolltop = $(document).scrollTop();
                     objLeft = (screenWidth - obj.width()) / 2;
                     objTop = (screenHeight - obj.height()) / 2 + scrolltop;
-
-                    obj.css({left: objLeft + 'px', top: objTop + 'px', 'display': 'block'});
+                    if(key!=0) {
+                        obj.css({left: objLeft + 'px', top: objTop + 'px', 'display': 'block'});
+                    }
                 });
             }
 

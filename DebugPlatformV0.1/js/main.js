@@ -56,11 +56,8 @@ $(document).ready(function(){
         controlstr = controlstr+"<li id='"+i+"'>"+(i+1)+"</li>";
     }
     $("#pre").after(controlstr);
-    //新加的
     showli(0);
     $("#pre").hide();
-
-    //新加的
     $("#next").show();
     $("li").click(
         function()
@@ -127,12 +124,18 @@ function show(number)
 
 function showli(number)
 {
-    var choosedli = $("li").eq(parseInt(number)+parseInt(1));
+    number = parseInt(number)+parseInt(1);
+    var choosedli = $("li").eq(parseInt(number));
     choosedli.addClass("choosedli");
     choosedli.prevAll().hide();
     choosedli.prev().show();
     choosedli.prev().prev().show();
     choosedli.nextAll().hide();
+    if(number==1)
+    {
+        choosedli.next().next().next().show();
+        choosedli.next().next().next().next().show();
+    }
     choosedli.next().show();
     choosedli.next().next().show();
 }
