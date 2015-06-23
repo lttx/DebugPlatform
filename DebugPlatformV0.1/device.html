@@ -90,7 +90,7 @@
 
         <div class="foot-control">
             <button class="btn btn-info btn-lg col-lg-3" id="configbtn">配置</button>
-            <button class="btn btn-info btn-lg col-lg-3 col-lg-offset-1" id="undatebtn">固件升级</button>
+            <button class="btn btn-info btn-lg col-lg-3 col-lg-offset-1" id="sendCommand">发送命令</button>
             <button class="btn btn-info btn-lg col-lg-3 col-lg-offset-1">数据导出</button>
         </div>
     </div>
@@ -105,87 +105,89 @@
      <div class="mess-body">
          <table>
              <tr>
-                 <td class="mess-tittle">采集间隔</td>
+                 <td class="mess-tittle">sensor_interval</td>
                  <td class="blank"></td>
                  <td class="mess-info">
                      <div class="input-group">
-                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <input class="form-control" id="sensor_interval" placeholder="1" type="text" style="text-align: right">
                          <span class="input-group-addon">秒</span>
                      </div>
                  </td>
              </tr>
              <tr>
-                 <td class="mess-tittle">上传间隔</td>
+                 <td class="mess-tittle">duty_interval</td>
                  <td class="blank"></td>
                  <td class="mess-info">
                      <div class="input-group">
-                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <input class="form-control" id="duty_interval" placeholder="1" type="text" style="text-align: right">
                          <span class="input-group-addon">秒</span>
                      </div>
                  </td>
              </tr>
              <tr>
-                 <td class="mess-tittle">风扇级数</td>
+                 <td class="mess-tittle">fan_speed</td>
                  <td class="blank"></td>
                  <td class="mess-info">
                      <div class="input-group">
-                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <input class="form-control" id="fan_speed" placeholder="1" type="text" style="text-align: right">
                          <span class="input-group-addon">级</span>
                      </div>
                  </td>
              </tr>
              <tr>
-                 <td class="mess-tittle">状态上传间隔</td>
+                 <td class="mess-tittle">check_interval</td>
                  <td class="blank"></td>
                  <td class="mess-info">
                      <div class="input-group">
-                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <input class="form-control" id="check_interval" placeholder="1" type="text" style="text-align: right">
                          <span class="input-group-addon">秒</span>
                      </div>
                  </td>
              </tr>
              <tr>
-                 <td class="mess-tittle">时间同步间隔</td>
+                 <td class="mess-tittle">time_sync_interval</td>
                  <td class="blank"></td>
                  <td class="mess-info">
                      <div class="input-group">
-                         <input class="form-control" placeholder="1" type="number" style="text-align: right">
+                         <input class="form-control" id= "time_sync_interval" placeholder="1" type="text" style="text-align: right">
                          <span class="input-group-addon">秒</span>
                      </div>
                  </td>
              </tr>
              <tr>
-                 <td class="mess-tittle">传感器上传间隔</td>
+                 <td class="mess-tittle">sensor_avg</td>
                  <td class="blank"></td>
                  <td class="mess-info">
                      <div class="input-group">
-                         <input class="form-control" placeholder="--" type="number" style="text-align: right">
+                         <input class="form-control" id= "sensor_avg" placeholder="1" type="text" style="text-align: right">
                          <span class="input-group-addon">秒</span>
                      </div>
                  </td>
              </tr>
-			 <tr>
-                 <td class="mess-tittle">操作命令</td>
+<!--			 <tr>
+                 <td class="mess-tittle">config_command</td>
                  <td class="blank"></td>
                  <td class="mess-info">
                      <div class="input-group">
-                         <input type="text" readonly class="form-control"  value="config" style="text-align: right">
+                         <input type="text" readonly class="form-control" id="config_command"  value="config" style="text-align: right">
                          <span class="input-group-btn btn btn-info" data-toggle="dropdown">
                              <span class="caret"></span>
                          </span>
                          <ul class="dropdown-menu dropdown-menu-right commandlist" role="menu">
-                             <li>time_sync</li>
                              <li>check</li>
+			     <li>config</li>
                              <li>self_test</li>
+			     <li>time_sync</li>
                              <li>upgrade</li>
                          </ul>
                      </div>
                  </td>
-             </tr>
+             </tr>-->
          </table>
      </div>
      <div class="mess-foot">
-         <button class="btn btn-info btn-lg col-md-6 col-md-offset-3"id="applybtn"><b>应用设置</b></button>
+         <button class="btn btn-info btn-lg col-md-3 col-md-offset-6" id="applybtn"><b>修改数据</b></button>
+	 <!--<button class="btn btn-info btn-lg col-md-3 col-md-offset-3" disabled="true" id="confAppBtn" ><b>下发命令</b></button>-->
      </div>
  </div>
 
@@ -203,17 +205,20 @@
 
         <div class="input-group">
             <span class="input-group-addon">操作命令</span>
-            <input type="text" readonly class="form-control"  value="config" style="text-align: right">
+            <input type="text" readonly class="form-control" id="upgradeCommand"  value="upgrade" style="text-align: right">
                          <span class="input-group-btn btn btn-info" data-toggle="dropdown">
                              <span class="caret"></span>
                          </span>
             <ul class="dropdown-menu dropdown-menu-right commandlist"  role="menu">
-                <li>self_test</li>
+		<li>check</li>
+		<li>config</li>
+		<li>self_test</li>
+		<li>time_sync</li>
                 <li>upgrade</li>
             </ul>
         </div>
 
-        <button class="btn btn-sm btn-info mess2-config-btn" >确定</button>
+        <button class="btn btn-sm btn-info mess2-config-btn" id="upgradeConfirm" >确定</button>
     </div>
 </div>
 
@@ -223,6 +228,7 @@
 <script src="js/jquery-2.1.4.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
+<script src="js/jquery.json.js"></script>
 <script src="js/loginStatus.js"></script>
 <script src="js/device.js"></script>
 </html>
