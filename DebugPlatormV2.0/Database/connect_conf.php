@@ -6,7 +6,6 @@ $SERVER_ENVIRONMENT = 'test';
 $RESOURCE_REFERENCE = array();
 $DBNAME ="debugplatform";
 if($SERVER_ENVIRONMENT=='develop'){
-    //oyyd-pc db
     $HOST = "127.0.0.1";
     $USERNAME = "root";
     $PASSWORD = "";
@@ -14,9 +13,9 @@ if($SERVER_ENVIRONMENT=='develop'){
 }else if($SERVER_ENVIRONMENT=='production'){
     // Online db
     $HOST = "localhost:3306";
-    $USERNAME = "ssa";
-    $PASSWORD = "ssa2015&";
-    $serverOrigin = 'coilabs.com';
+    $USERNAME = "root";
+    $PASSWORD = "";
+    $serverOrigin = '';
 }else if($SERVER_ENVIRONMENT == 'test'){
     // Test Server
     $HOST = 'localhost:3306';
