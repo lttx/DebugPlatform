@@ -103,6 +103,9 @@ $(document).ready(function() {
     //实现页面控制的JS
     $("tbody tr:visible:even").css("background-color","lightgray");
 
+    //搜索框
+
+
     function removeClassDelayed(jqObj, cerror, to) {
         setTimeout(function () {
             jqObj.removeClass(cerror);
