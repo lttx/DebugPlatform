@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>ATLAS设备调试系统</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+<div class="center">
+    <div class="left">
+        <div class="logodiv">
+            <img src="image/logo.png" >
+        </div>
+        <div class="devicemenu">
+            <div class="head">
+                <img src="image/list_white.png" id="list" class="headicon">
+                <span>设备列表</span>
+                <img src="image/right_white.png" class="headicon2">
+            </div>
+            <div class="devicelist list">
+                <div>
+
+                </div>
+                <ul class="list-unstyled" id="deviceul">
+                </ul>
+            </div>
+        </div>
+        <div class="submit">
+            <div class="head" >
+                <img src="image/set_white.png" id="set" class="headicon">
+                <span>提交指令</span>
+                <img src="image/right_white.png" class="headicon2">
+            </div>
+            <div class="commandlist list">
+                <ul class="list-unstyled">
+                    <li>time_sync</li>
+                    <li>check</li>
+                    <li>self_test</li>
+                    <li id="upgradeinfo">upgrade</li>
+                    <li>config</li>
+                </ul>
+                <button class="btn btn-info btn-block" >提交</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="upgrademenu" id="upgrademenu">
+        <table>
+            <tr><td><img src="image/close.png" class="closeimg"></td></tr>
+            <tr>
+                <td class="upgrademenutittle">step1:</td>
+                <td>nasvlchsav</td>
+                <td>3/90</td>
+            </tr>
+            <tr>
+                <td class="upgrademenutittle">step1:</td>
+                <td>nasvlchsav</td>
+                <td>3/90</td>
+            </tr>
+            <tr>
+                <td class="upgrademenutittle">step1:</td>
+                <td>nasvlchsav</td>
+                <td>3/90</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <button class="btn btn-info" id="uploadsure">确定</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="right" id="right">
+        <div class="righthead">
+            <ul class="list-unstyled clearfix">
+                <li class="tittle">ATLAS设备调试系统</li>
+                <li class="search">
+                    <div>
+                        <input type="text" class="form-control" style="border-right: none;width: 100%" placeholder="搜索...">
+                    </div>
+                    <button class="btn btn-default" style="position: relative;left: 77%;top:-48px;border: none;"><img src="image/search.png" style="width:100%;height: 100%;"></button>
+                </li>
+                <li class="user">
+                    <div class="userinfo">
+                        <img src="image/user_white.png">
+                        <span>Admin</span>
+                        <div id="logout">
+                            <img src="image/logout.png">
+                            <span style="position: relative;top:3px;left:-85px;color: #080808">注销</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="righttablehead">
+            <table>
+                <thead>
+                <tr>
+                    <th width="7%">选择</th>
+                    <th width="30%">设备ID</th>
+                    <th width="7%">型号</th>
+                    <th width="7%">PM1.0</th>
+                    <th width="7%">PM2.5</th>
+                    <th width="7%">PM10</th>
+                    <th width="7%">温度</th>
+                    <th width="7%">湿度</th>
+                    <th width="7%">风扇</th>
+                    <th width="7%">状态</th>
+                    <th width="7%">操作</th>
+                </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="rightdatatable" >
+            <table id="devicetable" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+            </table>
+        </div>
+
+        <div class="rightfoot">
+            <button class="btn btn-default" id="chooseall">全选/反选</button>
+            <button class="btn btn-default " id="configbtn">配置</button>
+            <button class="btn btn-default upgradebtn">固件升级</button>
+            <button class="btn btn-default">数据导出</button>
+        </div>
+    </div>
+
+</div>
+
+<div class="mask"></div>
+
+<div class="mess">
+    <div class="mess-body">
+        <table class="lefttable">
+            <tr>
+                <td colspan="2" class="tablehead">
+                    <span>修改配置</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">采集间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="text" style="text-align: right" min="1">
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">上传间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="text" style="text-align: right" min="1">
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">风扇级数</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="text" style="text-align: right" min="1">
+                        <span class="input-group-addon">级</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">状态上传间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="text" style="text-align: right" min="1">
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">时间同步间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="text" style="text-align: right" min="1">
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">传感器上传间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="--" readonly style="text-align: right">
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="btn btn-default" id="applybtn"><b>应用设置</b></button>
+                </td>
+            </tr>
+        </table>
+        <table class="righttable">
+            <tr>
+                <td colspan="2" class="tablehead">
+                    <span>配置显示</span>
+                    <button class="btn-danger closebtn2">x</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">采集间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="number" style="text-align: right" readonly>
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">上传间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="number" style="text-align: right" readonly>
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">风扇级数</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="number" style="text-align: right" readonly>
+                        <span class="input-group-addon">级</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">状态上传间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="number" style="text-align: right" readonly>
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">时间同步间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="1" type="number" style="text-align: right" readonly>
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="mess-tittle">传感器上传间隔</td>
+                <td class="mess-info">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="--" readonly style="text-align: right" >
+                        <span class="input-group-addon">秒</span>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div class="mess2">
+    <button class="btn-danger closebtn2">x</button>
+    <div class="progress">
+        <span class="progress-val">0%</span>
+        <span class="progress-bar"><span class="progress-in" ></span></span>
+    </div>
+    <div class="command2">
+        <div class="input-group">
+            <span class="input-group-addon">操作命令</span>
+            <input type="text" readonly class="form-control"  value="config" style="text-align: right">
+                         <span class="input-group-btn btn btn-info" data-toggle="dropdown">
+                             <span class="caret"></span>
+                         </span>
+            <ul class="dropdown-menu dropdown-menu-right commandlist"  role="menu">
+                <li>self_test</li>
+                <li>upgrade</li>
+            </ul>
+        </div>
+        <button class="btn btn-sm btn-info mess2-config-btn" >确定</button>
+    </div>
+</div>
+
+</body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.7.2.custom.min.js"></script>
+<script type="text/javascript" src="js/jquery.chromatable.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js" charset="utf-8"></script>
+</html>
